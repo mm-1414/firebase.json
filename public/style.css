@@ -1,3 +1,14 @@
 body {
   background: linear-gradient(to bottom, #87cefa, #ffffff);
 }
+h1 {
+  color: navy;
+  text-align: center;
+  font-size: 3em;
+}
+
+p {
+  color: #333;
+  font-size: 1.2em;
+  text-align: center;
+}
