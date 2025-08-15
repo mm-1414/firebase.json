@@ -1,1 +1,3 @@
-body { background-color: #87CEEB; }
+body {
+  background: linear-gradient(to bottom, #87cefa, #ffffff);
+}
