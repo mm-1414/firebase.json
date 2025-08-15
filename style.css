@@ -1,7 +1,9 @@
 body {
-  background-color: #f0f8ff; /* 背景色 */
+  background-color: #87CEEB; /* 晴れた空色 */
   font-family: Arial, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
