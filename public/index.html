@@ -5,6 +5,128 @@
   <title>oz-school</title>
   <link rel="stylesheet" href="style.css?v=1">
 </head>
+  <!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>oz-school</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    /* クリック可能な絵を中央に */
+    .hero {
+      min-height: 80vh;
+      display: grid;
+      place-items: center;
+    }
+    .hero a { text-decoration: none; }
+
+    /* SVGのサイズ調整 */
+    .cluster {
+      width: min(80vw, 520px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.15));
+      transition: transform .25s ease, filter .25s ease;
+    }
+    .cluster:hover {
+      transform: translateY(-6px) scale(1.02);
+      filter: drop-shadow(0 18px 36px rgba(0,0,0,.18));
+      cursor: pointer;
+    }
+    /* “浮いてる”感じの微アニメ */
+    @keyframes floaty {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+    .floaty { animation: floaty 4s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; margin:18px 0 6px;">ようこそ oz-school</h1>
+  <p style="text-align:center; margin:0 0 18px; color:#333;">仮想空間に浮かぶ“居住空間のかたまり”をクリックして学校へ</p>
+
+  <div class="hero">
+    <a href="school.html" aria-label="学校ページへ">
+      <!-- 抽象的な“浮遊クラスタ”SVG（オリジナル） -->
+      <svg class="cluster floaty" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+        <title id="title">仮想空間に浮かぶ居住クラスタ</title>
+        <desc id="desc">明るい夏色の立方体や円盤が集まった、楽しい雰囲気の浮遊オブジェクト</desc>
+
+        <!-- 背景グロー（淡い光） -->
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.9"/>
+            <stop offset="60%" stop-color="#87CEFA" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#87CEFA" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="cubeA" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00BFFF"/>
+            <stop offset="100%" stop-color="#87CEFA"/>
+          </linearGradient>
+          <linearGradient id="cubeB" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFD166"/>
+            <stop offset="100%" stop-color="#FCA311"/>
+          </linearGradient>
+          <linearGradient id="cubeC" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#90EE90"/>
+            <stop offset="100%" stop-color="#2ECC71"/>
+          </linearGradient>
+          <linearGradient id="ring" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- 光のにじみ -->
+        <circle cx="300" cy="300" r="260" fill="url(#glow)"/>
+
+        <!-- 浮遊リング -->
+        <ellipse cx="300" cy="330" rx="210" ry="48" fill="url(#ring)"/>
+
+        <!-- ノード的な丸 -->
+        <g fill="#ffffff" opacity="0.9">
+          <circle cx="140" cy="250" r="10"/><circle cx="470" cy="230" r="8"/>
+          <circle cx="190" cy="410" r="7"/><circle cx="420" cy="430" r="9"/>
+          <circle cx="330" cy="170" r="6"/><circle cx="260" cy="470" r="6"/>
+        </g>
+
+        <!-- “居住ブロック” 風の立体（抽象） -->
+        <g>
+          <!-- 大ブロック -->
+          <rect x="240" y="240" width="120" height="120" rx="16" fill="url(#cubeA)"/>
+          <rect x="240" y="240" width="120" height="120" rx="16" fill="#ffffff" opacity="0.1"/>
+          <!-- 窓っぽいドット -->
+          <g fill="rgba(255,255,255,.9)">
+            <circle cx="270" cy="270" r="4"/><circle cx="295" cy="270" r="4"/><circle cx="320" cy="270" r="4"/>
+            <circle cx="270" cy="295" r="4"/><circle cx="295" cy="295" r="4"/><circle cx="320" cy="295" r="4"/>
+          </g>
+
+          <!-- サブブロックA -->
+          <rect x="180" y="280" width="80" height="80" rx="14" fill="url(#cubeB)"/>
+          <circle cx="220" cy="320" r="6" fill="#fff" opacity=".9"/>
+
+          <!-- サブブロックB -->
+          <rect x="360" y="280" width="80" height="80" rx="14" fill="url(#cubeC)"/>
+          <circle cx="400" cy="320" r="6" fill="#fff" opacity=".9"/>
+
+          <!-- コネクタ -->
+          <g stroke="#ffffff" stroke-width="3" opacity=".8">
+            <line x1="260" y1="300" x2="200" y2="320"/>
+            <line x1="340" y1="300" x2="400" y2="320"/>
+            <line x1="300" y1="360" x2="300" y2="420"/>
+          </g>
+
+          <!-- 下部ドック -->
+          <rect x="280" y="420" width="40" height="22" rx="6" fill="#ffffff" opacity=".85"/>
+        </g>
+      </svg>
+    </a>
+  </div>
+</body>
+</html>
+
 <body>
   <h1>こんにちは！</h1>
   <p>これは最初のWebページです。</p>
