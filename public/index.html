@@ -4,87 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>oz-school</title>
-  <!-- Google Fonts: Orbitron -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- TRON系フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      text-align: center;
-      color: white;
-      background: black;
+    :root{
+      --neon: #27e9ff;
+      --neon-dim: #00cfff;
+      --bg: #000; /* 黒背景 */
+    }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#fff;
+      font-family:"Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      overflow:hidden;
     }
 
-    /* 背景画像 */
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start; /* 上に寄せる */
-      align-items: center;
-      background: url('castle.jpg') no-repeat center center/cover;
-      padding-top: 40px;
+    /* ===== ステージ（画像＋UIを重ねる） ===== */
+    .stage{
+      position:relative;
+      width:100%;
+      height:100vh;
     }
 
-    /* タイトル */
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin: 0;
-      color: cyan;
-      text-shadow: 0 0 12px cyan, 0 0 28px #00ffff;
-      letter-spacing: 4px;
+    /* 背景画像（学校） */
+    .castle{
+      position:absolute;
+      inset:0;
+      margin:auto;
+      z-index:0;
+      /* PCは縦いっぱい、スマホは横いっぱいで収める */
+      height:100vh; width:auto; object-fit:contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
+      user-select:none; pointer-events:none;
+    }
+    @media (max-width: 600px){
+      .castle{ width:100vw; height:auto; }
     }
 
-    /* サブタイトル（日本語） */
-    .hero p.jp {
-      font-size: 22px;
-      margin: 15px 0 5px;
-      color: white;
-      text-shadow: 0 0 6px rgba(0,255,255,0.8);
+    /* ===== 画面上部のテキスト ===== */
+    .ui{
+      position:relative;
+      z-index:2;
+      width:100%;
+      text-align:center;
+      padding-top: 18px;
+    }
+    .title{
+      margin:0;
+      font-weight:800;
+      letter-spacing:.18em;
+      font-size: clamp(28px, 8vw, 88px);
+      color: var(--neon);
+      text-shadow:
+        0 0 10px var(--neon),
+        0 0 24px var(--neon-dim),
+        0 0 60px rgba(0,200,255,.6);
+    }
+    .jp{
+      margin:.6rem 0 .2rem;
+      font-weight:700;
+      font-size: clamp(14px, 3.8vw, 28px);
+      text-shadow: 0 0 8px rgba(0,255,255,.65);
+    }
+    .en{
+      margin:.2rem 0 0;
+      font-weight:500;
+      font-size: clamp(12px, 3.2vw, 22px);
+      color:#bff6ff;
+      letter-spacing:.06em;
+      text-shadow: 0 0 10px rgba(0,240,255,.7);
     }
 
-    /* サブタイトル（英語） */
-    .hero p.en {
-      font-size: 16px;
-      margin: 5px 0 35px;
-      color: #aefcff;
-      text-shadow: 0 0 8px rgba(0,255,255,0.9);
-      letter-spacing: 1px;
-    }
-
-    /* ボタン（小さめ） */
-    .hero a {
-      display: inline-block;
-      padding: 8px 18px;
-      background: black;
-      color: cyan;
+    /* ===== Click ボタン（小さめ＆半透明） ===== */
+    .cta{
+      position:absolute;
+      left:50%;
+      bottom: 14vh;                 /* 位置は好みで微調整 */
+      transform: translateX(-50%);
+      z-index:3;
+      display:inline-block;
+      padding: 8px 20px;            /* 小さめ */
       font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      border: 2px solid cyan;
-      border-radius: 6px;
-      box-shadow: 0 0 8px cyan, 0 0 16px #00ffff;
-      transition: all 0.25s ease;
-      text-transform: uppercase; /* TRON風に大文字 */
-      letter-spacing: 2px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: var(--neon);
+      background: rgba(0,0,0,.55);  /* 半透明 */
+      border: 2px solid var(--neon);
+      border-radius:10px;
+      box-shadow:
+        0 0 10px var(--neon),
+        0 0 26px rgba(0,200,255,.55);
+      text-decoration:none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
-
-    .hero a:hover {
-      background: cyan;
-      color: black;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px cyan, 0 0 35px #00ffff;
+    .cta:hover{
+      transform: translateX(-50%) scale(1.05);
+      background: rgba(0,20,30,.75);
+      box-shadow:
+        0 0 14px var(--neon),
+        0 0 40px rgba(0,200,255,.75);
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>OZ-SCHOOL</h1>
-    <p class="jp">無限に広がる学びの世界へ</p>
-    <p class="en">Welcome to the magical world of learning!</p>
-    <a href="#">Click</a>
-  </div>
+  <main class="stage">
+    <!-- 背景の学校画像：パスは /images/castle.png に修正 -->
+    <img class="castle" src="/images/castle.png?v=5" alt="Castle School">
+
+    <!-- 上部テキスト（重ならない） -->
+    <section class="ui" aria-hidden="false">
+      <h1 class="title">OZ-SCHOOL</h1>
+      <div class="jp">無限に広がる学びの世界へ</div>
+      <div class="en">Welcome to the magical world of learning!</div>
+    </section>
+
+    <!-- 入口へ -->
+    <a class="cta" href="/school.html" aria-label="Enter the school">Click</a>
+  </main>
 </body>
 </html>
