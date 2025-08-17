@@ -4,134 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>oz-school</title>
-
-  <!-- 外部CSS（あれば残す） -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- 未来的タイトル用フォント（TRON系） -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
-  <!-- 日本語本文はゴシックで可愛め -->
-  <style>
-    :root{
-      --space:#001a33;
-      --neon1:#9ffcff;
-      --neon2:#53d7ff;
-      --neon3:#2db2ff;
-    }
-
-    body{
-      margin:0;
-      background:var(--space);
-      color:#fff;
-      font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
-    }
-
-    /* ===== タイトル（TRON風ネオン） ===== */
-    .tron-title{
-      position:fixed; z-index:10;
-      top:12px; left:50%; transform:translateX(-50%);
-      margin:0; text-transform:lowercase;
-      font-family:"Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      font-weight:800; letter-spacing:.12em;
-      font-size:clamp(26px, 4.6vw, 60px);
-      background:linear-gradient(180deg, var(--neon1) 0%, var(--neon2) 40%, var(--neon3) 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      -webkit-text-stroke:1px rgba(160,245,255,.55);
-      text-shadow:
-        0 0 6px rgba(111,240,255,.75),
-        0 0 14px rgba(60,200,255,.65),
-        0 0 26px rgba(40,160,255,.55),
-        0 0 46px rgba(0,150,255,.45);
-      filter: drop-shadow(0 8px 14px rgba(0,150,255,.35));
-      mix-blend-mode:screen;
-      animation: tronPulse 2.8s ease-in-out infinite;
-      text-align:center;
-    }
-    @keyframes tronPulse{
-      0%,100%{ text-shadow:0 0 5px rgba(111,240,255,.7),0 0 12px rgba(60,200,255,.6),0 0 22px rgba(40,160,255,.5),0 0 36px rgba(0,150,255,.4); }
-      50%{ text-shadow:0 0 8px rgba(111,240,255,.9),0 0 18px rgba(60,200,255,.8),0 0 34px rgba(40,160,255,.7),0 0 58px rgba(0,150,255,.6); }
-    }
-
-    /* ===== サブコピー（JP/EN） ===== */
-    .subcopy{
-      position:fixed; z-index:9;
-      top: calc(12px + clamp(32px, 5vw, 64px) + 10px);
-      left:50%; transform:translateX(-50%);
-      text-align:center; line-height:1.35;
-      font-size:clamp(12px, 2.6vw, 18px);
-      color:#cfefff;
-      text-shadow: 0 1px 2px rgba(0,0,0,.6);
-      padding: 0 .75rem;
-      white-space:nowrap;
-    }
-    .subcopy small{ display:block; opacity:.9; font-size:.9em; }
-
-    /* ===== メイン画像 ===== */
-    .hero{
-      position:relative;
-      min-height:100vh;
-      display:grid; place-items:center;
-    }
-    .hero img{
-      display:block;
-      margin:0 auto;
-      height:100vh; width:auto;  /* PC:縦いっぱい */
-      user-select:none;
-    }
-    @media (max-width:600px){
-      .hero img{ width:100vw; height:auto; } /* スマホ:横いっぱい */
-    }
-
-    /* ===== “Click” ラベル（入口あたり） ===== */
-    .click-badge{
-      position:absolute; z-index:11;
-      /* 画像の構図に合わせて入口付近へ。必要に応じて微調整 */
-      left:50%; top:58%;
-      transform:translate(-50%,-50%);
-      padding:.5rem .85rem;
-      font-family:"Orbitron", system-ui, sans-serif;
-      font-weight:800; letter-spacing:.08em;
-      font-size:clamp(14px, 2.6vw, 18px);
-      color:#001220;
-      background: radial-gradient(100% 100% at 50% 0%, #9ffcff 0%, #45d0ff 60%, #2aa8ff 100%);
-      border:1px solid rgba(160,245,255,.8);
-      border-radius:999px;
-      box-shadow:
-        0 0 10px rgba(90,220,255,.8),
-        0 0 24px rgba(40,160,255,.55);
-      text-decoration:none;
-      transition: transform .15s ease, box-shadow .15s ease;
-      animation: ping 2s infinite ease-in-out;
-    }
-    .click-badge:hover{ transform:translate(-50%,-50%) scale(1.06); }
-    @keyframes ping{
-      0%,100%{ box-shadow:0 0 10px rgba(90,220,255,.8), 0 0 24px rgba(40,160,255,.55); }
-      50%{ box-shadow:0 0 16px rgba(120,240,255,.9), 0 0 40px rgba(40,160,255,.7); }
-    }
-
-    /* スマホでは少し上に寄せる */
-    @media (max-width:600px){
-      .tron-title{ top:8px; }
-      .subcopy{ top: calc(8px + clamp(32px, 5vw, 64px) + 6px); white-space:normal; }
-      .click-badge{ top:56%; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
-  <!-- タイトル -->
-  <h1 class="tron-title">oz-school</h1>
-
-  <!-- サイトの説明：日本語＋英語 -->
-  <div class="subcopy" aria-hidden="false">
-    無限に広がる学校へようこそ。<small>Welcome to the school that expands without limits.</small>
-  </div>
-
-  <!-- メイン画像（お城）。v=4 はキャッシュ回避用の任意番号 -->
   <div class="hero">
-    <a href="/school.html" aria-label="学校へ入る（Enter the school）">
-      <img src="/images/castle.png?v=4" alt="Castle School">
-      <span class="click-badge">Click</span>
-    </a>
+    <!-- 背景の城の絵 -->
+    <img src="images/castle.png" alt="castle" class="castle">
+
+    <!-- 上のテキスト -->
+    <div class="hero-text">
+      <h1>OZ-SCHOOL</h1>
+      <h2>無限に広がる学びの世界へ</h2>
+      <p>Welcome to the magical world of learning!</p>
+    </div>
+
+    <!-- ボタン -->
+    <button class="hero-button">Click</button>
   </div>
 </body>
 </html>
