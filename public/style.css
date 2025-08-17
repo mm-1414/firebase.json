@@ -1,95 +1,103 @@
-body {
-  margin: 0;
-  font-family: "Georgia", serif;
-  background: black;
-  color: white;
-  overflow: hidden;
+/* ===== base ===== */
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:"Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overflow:hidden;
 }
 
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+/* ===== hero (ステージ) ===== */
+.hero{
+  position:relative;          /* 子要素(.cta)を絶対配置するため */
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
 }
 
-/* 城の画像 */
-.castle {
-  width: min(90vw, 600px);
-  height: auto;
-  filter: drop-shadow(0 12px 24px rgba(0,0,0,.6));
-  z-index: 0;
+/* ===== 城の画像 ===== */
+.castle{
+  /* PC: 縦いっぱい / SP: 横いっぱい */
+  height:100vh;
+  width:auto;
+  filter:drop-shadow(0 12px 24px rgba(0,0,0,.6));
+  z-index:0;
+  user-select:none;
+  pointer-events:none;
+}
+@media (max-width:600px){
+  .castle{ width:100vw; height:auto; }
 }
 
-/* 上のテキスト */
-.hero-text {
-  position: absolute;
-  top: 8%; /* 画面上からの位置 */
-  width: 100%;
-  text-align: center;
-  color: silver; /* 銀色 */
-  z-index: 1;
+/* ===== 上のテキスト（重ならないよう上部に配置） ===== */
+.hero-text{
+  position:absolute;
+  top:8%;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  text-align:center;
+  color:#cfefff;
+  z-index:1;
+}
+.hero-text h1{
+  margin:.5em 0 0;
+  font-size:clamp(28px, 8vw, 88px);
+  letter-spacing:.18em;
+  color:#27e9ff;
+  text-shadow:
+    0 0 10px #27e9ff,
+    0 0 24px rgba(0,207,255,.9),
+    0 0 60px rgba(0,200,255,.6);
+}
+.hero-text h2{
+  margin:.6rem 0 .2rem;
+  font-size:clamp(14px, 3.8vw, 28px);
+  font-weight:700;
+  color:#fff;
+  text-shadow:0 0 8px rgba(0,255,255,.65);
+}
+.hero-text p{
+  margin:.2rem 0 0;
+  font-size:clamp(12px, 3.2vw, 22px);
+  color:#bff6ff;
+  letter-spacing:.06em;
+  text-shadow:0 0 10px rgba(0,240,255,.7);
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  margin: 0.5em 0;
-  text-shadow: 0 0 8px #fff, 0 0 15px #aaa;
+/* ===== CLICK ボタン（小さめ・半透明・入口付近に固定） ===== */
+.cta{
+  position:absolute;
+  /* 画像中央より少し下：橋の突き当たりを狙う。数値で微調整OK */
+  top:62%;
+  left:50%;
+  transform:translate(-50%,-50%);
+
+  z-index:3;
+  display:inline-block;
+  padding:6px 14px;              /* 小さめ */
+  font-size:14px;                /* 小さめ */
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#27e9ff;
+  background:rgba(0,0,0,.55);    /* 半透明 */
+  border:2px solid #27e9ff;
+  border-radius:10px;
+  text-decoration:none;
+  box-shadow:
+    0 0 10px #27e9ff,
+    0 0 26px rgba(0,200,255,.55);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.cta:hover{
+  transform:translate(-50%,-50%) scale(1.05);
+  background:rgba(0,20,30,.75);
+  box-shadow:
+    0 0 14px #27e9ff,
+    0 0 40px rgba(0,200,255,.75);
 }
 
-.hero-text h2 {
-  font-size: 1.8rem;
-  margin: 0.3em 0;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin: 0.5em 0;
-}
-
-/* ボタン */
-/* CLICK ボタン */
-.hero a {
-  display: inline-block;
-  padding: 6px 14px;     /* ボタンの余白（小さめ） */
-  font-size: 14px;       /* 文字の大きさ（小さめ） */
-  font-family: 'Orbitron', sans-serif; /* tron風フォント */
-  color: #00f0ff;
-  border: 2px solid #00f0ff;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.7);
-  text-decoration: none;
-  letter-spacing: 2px;   /* tron風に文字間隔を広く */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero a:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px #00f0ff;
-}
-.hero-button:hover {
-  background: rgba(0, 162, 255, 0.8);
-  transform: translateX(-50%) scale(1.05);
-}
-/* ヒーローセクション */
-.hero {
-  position: relative;  /* 子要素を絶対配置できるようにする */
-  min-height: 80vh;
-  display: grid;
-  place-items: center;
-}
-
-/* ボタン */
-.cluster {
-  width: min(80vw, 520px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 12px 24px rgba(0,0,0,.15));
-  transition: transform .25s ease, filter .25s ease;
-}
-.cluster:hover {
-  transform: translateY(-6px) scale(1.02);
-  filter: drop-shadow(0 18px 36px rgba(0,0,0,.18));
-}
+/* ===== 不要な競合ルールは削除（.hero a, .cluster 等）は使いません ===== */
