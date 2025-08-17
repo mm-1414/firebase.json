@@ -36,7 +36,7 @@
       inset:0;
       margin:auto;
       z-index:0;
-      /* PCは縦いっぱい、スマホは横いっぱいで収める */
+      /* PCは縦いっぱい、スマホは横いっぱい */
       height:100vh; width:auto; object-fit:contain;
       filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
       user-select:none; pointer-events:none;
@@ -51,14 +51,14 @@
       z-index:2;
       width:100%;
       text-align:center;
-      padding-top: 18px;
+      padding-top:18px;
     }
     .title{
       margin:0;
       font-weight:800;
       letter-spacing:.18em;
-      font-size: clamp(28px, 8vw, 88px);
-      color: var(--neon);
+      font-size:clamp(28px, 8vw, 88px);
+      color:var(--neon);
       text-shadow:
         0 0 10px var(--neon),
         0 0 24px var(--neon-dim),
@@ -67,84 +67,60 @@
     .jp{
       margin:.6rem 0 .2rem;
       font-weight:700;
-      font-size: clamp(14px, 3.8vw, 28px);
-      text-shadow: 0 0 8px rgba(0,255,255,.65);
+      font-size:clamp(14px, 3.8vw, 28px);
+      text-shadow:0 0 8px rgba(0,255,255,.65);
     }
     .en{
       margin:.2rem 0 0;
       font-weight:500;
-      font-size: clamp(12px, 3.2vw, 22px);
+      font-size:clamp(12px, 3.2vw, 22px);
       color:#bff6ff;
       letter-spacing:.06em;
-      text-shadow: 0 0 10px rgba(0,240,255,.7);
+      text-shadow:0 0 10px rgba(0,240,255,.7);
     }
 
-    /* ===== Click ボタン（小さめ＆半透明） ===== */
+    /* ===== Click ボタン（小さめ・半透明・入口付近） ===== */
     .cta{
       position:absolute;
+      top:62%;                 /* ← 位置は60〜66%で微調整OK */
       left:50%;
-      bottom: 14vh;                 /* 位置は好みで微調整 */
-      transform: translateX(-50%);
+      transform:translate(-50%,-50%);
       z-index:3;
+
       display:inline-block;
-      padding: 8px 20px;            /* 小さめ */
-      font-size: 14px;
+      padding:6px 14px;        /* 小さめ */
+      font-size:14px;          /* 小さめ */
       font-weight:800;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color: var(--neon);
-      background: rgba(0,0,0,.55);  /* 半透明 */
-      border: 2px solid var(--neon);
+
+      color:var(--neon);
+      background:rgba(0,0,0,.55);   /* 半透明 */
+      border:2px solid var(--neon);
       border-radius:10px;
+      text-decoration:none;
       box-shadow:
         0 0 10px var(--neon),
         0 0 26px rgba(0,200,255,.55);
-      text-decoration:none;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+      pointer-events:auto;
     }
-    /* ===== Click ボタン（入口に配置） ===== */
-.cta{
-  position: absolute;
-  /* 画像中央より少し下＝橋の突き当たりあたり */
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  z-index: 3;
-  display: inline-block;
-  padding: 8px 20px;            /* 小さめのまま */
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-
-  color: var(--neon);
-  background: rgba(0,0,0,.55);  /* 半透明 */
-  border: 2px solid var(--neon);
-  border-radius: 10px;
-  box-shadow:
-    0 0 10px var(--neon),
-    0 0 26px rgba(0,200,255,.55);
-  text-decoration: none;
-
-  /* ほかのCSSに負けないよう保険で */
-  pointer-events: auto;
-}
-.cta:hover{
-  transform: translate(-50%, -50%) scale(1.05);
-  background: rgba(0,20,30,.75);
-  box-shadow:
-    0 0 14px var(--neon),
-    0 0 40px rgba(0,200,255,.75);
-}
+    .cta:hover{
+      transform:translate(-50%,-50%) scale(1.05);
+      background:rgba(0,20,30,.75);
+      box-shadow:
+        0 0 14px var(--neon),
+        0 0 40px rgba(0,200,255,.75);
+    }
   </style>
 </head>
 <body>
   <main class="stage">
-    <!-- 背景の学校画像：パスは /images/castle.png に修正 -->
-    <img class="castle" src="/images/castle.png?v=5" alt="Castle School">
+    <!-- 背景の学校画像 -->
+    <img class="castle" src="/images/castle.png?v=6" alt="Castle School">
 
-    <!-- 上部テキスト（重ならない） -->
+    <!-- 上部テキスト -->
     <section class="ui" aria-hidden="false">
       <h1 class="title">OZ-SCHOOL</h1>
       <div class="jp">無限に広がる学びの世界へ</div>
