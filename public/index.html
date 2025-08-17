@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>oz-school</title>
+
+  <!-- 外部CSS（もしあれば残す） -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- 飾り文字フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
   <style>
     /* 画面いっぱい表示（PCとスマホで切り替え） */
     .hero img {
@@ -25,11 +31,44 @@
       margin: 0;
       background-color: #001a33; /* 夜空っぽい背景色（余白用） */
     }
+
+    /* 銀色の飾り文字タイトル */
+    .hp-title {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      font-family: "UnifrakturMaguntia", "Times New Roman", serif;
+      font-size: clamp(28px, 4.2vw, 56px);
+      letter-spacing: .5px;
+
+      /* 銀色グラデーション */
+      background: linear-gradient(#f5f5f5, #dcdcdc 40%, #a9a9a9 70%, #5f5f5f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+
+      /* 光と縁取り */
+      text-shadow:
+        0 0 2px rgba(0,0,0,.5),
+        0 2px 3px rgba(0,0,0,.6),
+        0 0 15px rgba(200, 200, 200, .4);
+
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.4));
+    }
+
+    @media (max-width: 600px) {
+      .hp-title { top: 12px; }
+    }
   </style>
 </head>
 <body>
+  <!-- 銀色タイトル -->
+  <h1 class="hp-title">oz-school</h1>
+
+  <!-- メイン画像（お城） -->
   <div class="hero">
-    <!-- 新しい城の絵を表示 -->
     <img src="/images/castle.png" alt="Castle School">
   </div>
 </body>
