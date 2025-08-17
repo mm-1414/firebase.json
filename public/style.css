@@ -50,23 +50,25 @@ body {
 }
 
 /* ボタン */
-.hero-button {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 28px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 20px;
-  background: rgba(0, 162, 255, 0.6); /* 半透明 */
-  color: black;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
-  z-index: 2;
+/* CLICK ボタン */
+.hero a {
+  display: inline-block;
+  padding: 6px 14px;     /* ボタンの余白（小さめ） */
+  font-size: 14px;       /* 文字の大きさ（小さめ） */
+  font-family: 'Orbitron', sans-serif; /* tron風フォント */
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  letter-spacing: 2px;   /* tron風に文字間隔を広く */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.hero a:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #00f0ff;
+}
 .hero-button:hover {
   background: rgba(0, 162, 255, 0.8);
   transform: translateX(-50%) scale(1.05);
