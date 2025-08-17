@@ -16,3 +16,48 @@ p {
   font-size: 1.2em;
   text-align: center;
 }
+/* 上のテキストを整列させる */
+.hero-text {
+  position: absolute;
+  top: 10%;   /* 画面上からの位置 */
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin: 0.5em 0;
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  margin: 0.2em 0;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  margin: 0.5em 0;
+}
+
+/* ボタン調整 */
+.hero-button {
+  position: absolute;
+  top: 70%;   /* ボタンの縦位置を調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;   /* ボタンを少し小さく */
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background: rgba(0, 162, 255, 0.6); /* 半透明 */
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+}
+
+.hero-button:hover {
+  background: rgba(0, 162, 255, 0.8);
+  transform: translateX(-50%) scale(1.05);
+}
