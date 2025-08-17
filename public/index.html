@@ -4,22 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>oz-school</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <!-- Google Fonts: Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      color: white;
+      background: black;
+    }
+
+    /* 背景画像 */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* 上に寄せる */
+      align-items: center;
+      background: url('castle.jpg') no-repeat center center/cover;
+      padding-top: 40px;
+    }
+
+    /* タイトル */
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin: 0;
+      color: cyan;
+      text-shadow: 0 0 12px cyan, 0 0 28px #00ffff;
+      letter-spacing: 4px;
+    }
+
+    /* サブタイトル（日本語） */
+    .hero p.jp {
+      font-size: 22px;
+      margin: 15px 0 5px;
+      color: white;
+      text-shadow: 0 0 6px rgba(0,255,255,0.8);
+    }
+
+    /* サブタイトル（英語） */
+    .hero p.en {
+      font-size: 16px;
+      margin: 5px 0 35px;
+      color: #aefcff;
+      text-shadow: 0 0 8px rgba(0,255,255,0.9);
+      letter-spacing: 1px;
+    }
+
+    /* ボタン（小さめ） */
+    .hero a {
+      display: inline-block;
+      padding: 8px 18px;
+      background: black;
+      color: cyan;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid cyan;
+      border-radius: 6px;
+      box-shadow: 0 0 8px cyan, 0 0 16px #00ffff;
+      transition: all 0.25s ease;
+      text-transform: uppercase; /* TRON風に大文字 */
+      letter-spacing: 2px;
+    }
+
+    .hero a:hover {
+      background: cyan;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px cyan, 0 0 35px #00ffff;
+    }
+  </style>
 </head>
 <body>
   <div class="hero">
-    <!-- 背景の城の絵 -->
-    <img src="images/castle.png" alt="castle" class="castle">
-
-    <!-- 上のテキスト -->
-    <div class="hero-text">
-      <h1>OZ-SCHOOL</h1>
-      <h2>無限に広がる学びの世界へ</h2>
-      <p>Welcome to the magical world of learning!</p>
-    </div>
-
-    <!-- ボタン -->
-    <button class="hero-button">Click</button>
+    <h1>OZ-SCHOOL</h1>
+    <p class="jp">無限に広がる学びの世界へ</p>
+    <p class="en">Welcome to the magical world of learning!</p>
+    <a href="#">Click</a>
   </div>
 </body>
 </html>
