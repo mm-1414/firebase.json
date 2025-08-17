@@ -82,14 +82,6 @@ body {
 }
 
 /* ボタン */
-.hero a {
-  position: absolute;
-  bottom: 18%;   /* 学校の入り口に合わせる（調整ポイント） */
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-}
-
 .cluster {
   width: min(80vw, 520px);
   height: auto;
