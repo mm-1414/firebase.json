@@ -101,3 +101,9 @@ body{
 }
 
 /* ===== 不要な競合ルールは削除（.hero a, .cluster 等）は使いません ===== */
+.button {
+  position: absolute;
+  bottom: 40%;   /* ← お城の入口あたりに来るように調整 */
+  left: 50%;
+  transform: translateX(-50%);
+}
