@@ -102,13 +102,41 @@
       text-decoration:none;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
-    .cta:hover{
-      transform: translateX(-50%) scale(1.05);
-      background: rgba(0,20,30,.75);
-      box-shadow:
-        0 0 14px var(--neon),
-        0 0 40px rgba(0,200,255,.75);
-    }
+    /* ===== Click ボタン（入口に配置） ===== */
+.cta{
+  position: absolute;
+  /* 画像中央より少し下＝橋の突き当たりあたり */
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+  display: inline-block;
+  padding: 8px 20px;            /* 小さめのまま */
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  color: var(--neon);
+  background: rgba(0,0,0,.55);  /* 半透明 */
+  border: 2px solid var(--neon);
+  border-radius: 10px;
+  box-shadow:
+    0 0 10px var(--neon),
+    0 0 26px rgba(0,200,255,.55);
+  text-decoration: none;
+
+  /* ほかのCSSに負けないよう保険で */
+  pointer-events: auto;
+}
+.cta:hover{
+  transform: translate(-50%, -50%) scale(1.05);
+  background: rgba(0,20,30,.75);
+  box-shadow:
+    0 0 14px var(--neon),
+    0 0 40px rgba(0,200,255,.75);
+}
   </style>
 </head>
 <body>
