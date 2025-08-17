@@ -67,10 +67,10 @@ body{
   text-shadow:0 0 10px rgba(0,240,255,.7);
 }
 
-/* ===== CLICK ボタン（小さめ・半透明・入口付近に固定） ===== */
+/* ===== CLICK ボタン ===== */
 .cta{
   position:absolute;
-  /* 画像中央より少し下：橋の突き当たりを狙う。数値で微調整OK */
+  /* 画像中央より少し下：橋の突き当たりを狙う */
   top:62%;
   left:50%;
   transform:translate(-50%,-50%);
@@ -100,10 +100,4 @@ body{
     0 0 40px rgba(0,200,255,.75);
 }
 
-/* ===== 不要な競合ルールは削除（.hero a, .cluster 等）は使いません ===== */
-.button {
-  position: absolute;
-  bottom: 40%;   /* ← お城の入口あたりに来るように調整 */
-  left: 50%;
-  transform: translateX(-50%);
-}
+/* ===== 競合していた .button は削除 ===== */
