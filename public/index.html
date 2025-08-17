@@ -76,13 +76,13 @@
       font-size:clamp(12px, 3.2vw, 22px);
       color:#bff6ff;
       letter-spacing:.06em;
-      text-shadow:0 0 10px rgba(0,240,255,.7);
+      text-shadow: 0 0 10px rgba(0,240,255,.7);
     }
 
     /* ===== Click ボタン（小さめ・半透明・入口付近） ===== */
     .cta{
       position:absolute;
-      top:62%;                 /* ← 位置は60〜66%で微調整OK */
+      top:56%;                 /* ← 62% から少し上へ。さらに上なら 54% に */
       left:50%;
       transform:translate(-50%,-50%);
       z-index:3;
@@ -113,12 +113,17 @@
         0 0 14px var(--neon),
         0 0 40px rgba(0,200,255,.75);
     }
+
+    /* スマホは少しだけ下げて視認性を担保（必要なければ削除OK） */
+    @media (max-width:600px){
+      .cta{ top:58%; }
+    }
   </style>
 </head>
 <body>
   <main class="stage">
     <!-- 背景の学校画像 -->
-    <img class="castle" src="/images/castle.png?v=6" alt="Castle School">
+    <img class="castle" src="/images/castle.png?v=7" alt="Castle School">
 
     <!-- 上部テキスト -->
     <section class="ui" aria-hidden="false">
