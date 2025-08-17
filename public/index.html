@@ -4,72 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>oz-school</title>
-  <link rel="stylesheet" href="style.css?v=4">
-   <style>
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
-    }
-    h1, h2, h3, p, a {
-      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    body { margin:0; font-family: Arial, sans-serif; }
-    .hero { min-height: 80vh; display:grid; place-items:center; text-align:center; }
-    .hero a { text-decoration:none; color:inherit; }
-    .cluster { width:min(80vw,520px); height:auto; display:block;
-      filter: drop-shadow(0 12px 24px rgba(0,0,0,.15));
-      transition: transform .25s ease, filter .25s ease; }
-    .cluster:hover { transform: translateY(-6px) scale(1.02);
-      filter: drop-shadow(0 18px 36px rgba(0,0,0,.18)); cursor:pointer; }
-    @keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-6px)} 100%{transform:translateY(0)} }
-    .floaty { animation: floaty 4s ease-in-out infinite; }
+    /* 画面いっぱい表示（PCとスマホで切り替え） */
+    .hero img {
+      display: block;
+      margin: 0 auto;
+      height: 100vh;   /* PCでは縦を画面いっぱい */
+      width: auto;     /* 横は比率維持 */
+    }
+
+    @media (max-width: 600px) {
+      .hero img {
+        width: 100vw;  /* スマホでは横を画面いっぱい */
+        height: auto;  /* 縦は比率維持 */
+      }
+    }
+
+    body {
+      margin: 0;
+      background-color: #001a33; /* 夜空っぽい背景色（余白用） */
+    }
   </style>
 </head>
 <body>
-  <h1 style="text-align:center; margin:18px 0 6px;">ようこそ oz-school</h1>
-  <p style="text-align:center; margin:0 0 18px; color:#333;">
-    真ん中の絵をクリックすると学校ページへ
-  </p>
-
   <div class="hero">
-    <a href="school.html" aria-label="学校ページへ">
-      <!-- 中身ありの簡易SVG（必ず何かが見える） -->
-      <svg class="cluster floaty" viewBox="0 0 600 600" role="img">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="45%" r="60%">
-            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
-            <stop offset="60%" stop-color="#87CEFA" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#87CEFA" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="cubeA" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00BFFF"/><stop offset="100%" stop-color="#87CEFA"/>
-          </linearGradient>
-          <linearGradient id="cubeB" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFD166"/><stop offset="100%" stop-color="#FCA311"/>
-          </linearGradient>
-          <linearGradient id="cubeC" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#90EE90"/><stop offset="100%" stop-color="#2ECC71"/>
-          </linearGradient>
-        </defs>
-
-        <!-- 背景のにじみ -->
-        <circle cx="300" cy="300" r="260" fill="url(#glow)"/>
-        <!-- 本体ブロック -->
-        <rect x="240" y="240" width="120" height="120" rx="16" fill="url(#cubeA)"/>
-        <!-- サブブロック -->
-        <rect x="170" y="290" width="80" height="80" rx="14" fill="url(#cubeB)"/>
-        <rect x="350" y="290" width="80" height="80" rx="14" fill="url(#cubeC)"/>
-        <!-- コネクタ -->
-        <g stroke="#fff" stroke-width="3" opacity=".8">
-          <line x1="240" y1="300" x2="210" y2="330"/>
-          <line x1="360" y1="300" x2="390" y2="330"/>
-        </g>
-      </svg>
-    </a>
+    <!-- 新しい城の絵を表示 -->
+    <img src="images/castle.png" alt="Castle School">
   </div>
-
-  <!-- 念のためのテキストリンク（見えない時の保険） -->
-  <p style="text-align:center;"><a href="school.html">学校ページへ移動</a></p>
 </body>
 </html>
